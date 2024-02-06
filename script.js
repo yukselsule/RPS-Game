@@ -1,6 +1,9 @@
 "use strict";
 
 // Selecting elements
+const playerOg = document.querySelector(".player--og");
+const playerPc = document.querySelector(".player--pc");
+
 const choises = document.querySelectorAll(".choice");
 const choice0 = document.querySelector(".choice-0");
 const choice1 = document.querySelector(".choice-1");
@@ -18,10 +21,18 @@ const btnNewGame = document.querySelector(".btn__newgame");
 
 // Functions
 const pcChoice = function () {
-  const move = Math.trunc(Math.random() * 3) + 1;
-  choicePc.src = `img/option${move}.png`;
+  const move = Math.trunc(Math.random() * 3);
+  choicePc.src = `img/option${move + 1}.png`;
 
-  return move - 1;
+  return move;
+};
+
+const loseCondition = function () {
+  scores[1] = scores[1] + 1;
+  scorePcEl.textContent = scores[1];
+
+  playerPc.classList.add("winner");
+  playerOg.classList.remove("winner");
 };
 
 // Starting conditions
@@ -39,23 +50,16 @@ const init = function () {
   choicePc.src = `img/option.png`;
 };
 
-// Choosing a move
+init();
 
-for (let i = 0; i < choises.length; i++) {
-  choises[i].addEventListener("click", function () {
-    choiceOg.src = `img/option${i + 1}.png`;
-    pcChoice();
-  });
-}
-
-choises.forEach((choice) => {
+choises.forEach((choice, index) => {
   choice.addEventListener("click", function () {
+    choiceOg.src = `img/option${index + 1}.png`;
+    pcChoice();
+
     const playerChoiceNumber = Number(choice.dataset.choiceNumber);
 
     const pcChoiceNumber = pcChoice();
-
-    console.log(`${playerChoiceNumber}`);
-    console.log(`${pcChoiceNumber}`);
 
     //conditions
 
@@ -63,24 +67,20 @@ choises.forEach((choice) => {
       message.textContent = "Draw!";
     } else if (playerChoiceNumber === 0 && pcChoiceNumber === 1) {
       message.textContent = "You lose!";
-
-      scores[1] = scores[1] + 1;
-      scorePcEl.textContent = scores[1];
+      loseCondition();
     } else if (playerChoiceNumber === 1 && pcChoiceNumber === 2) {
       message.textContent = "You lose!";
-
-      scores[1] = scores[1] + 1;
-      scorePcEl.textContent = scores[1];
+      loseCondition();
     } else if (playerChoiceNumber === 2 && pcChoiceNumber === 0) {
       message.textContent = "You lose!";
-
-      scores[1] = scores[1] + 1;
-      scorePcEl.textContent = scores[1];
+      loseCondition();
     } else {
       message.textContent = "You win!";
 
       scores[0] = scores[0] + 1;
       scoreOgEl.textContent = scores[0];
+      playerPc.classList.remove("winner");
+      playerOg.classList.add("winner");
     }
   });
 });

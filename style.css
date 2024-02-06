@@ -14,7 +14,7 @@ body {
   font-weight: 400;
   color: #111827;
   height: 100vh;
-  background-image: linear-gradient(to right bottom, #047857, #059669);
+  background-image: linear-gradient(to right bottom, #eac7c7, #a0c3d2);
 
   position: relative;
 }
@@ -43,9 +43,16 @@ body {
   display: inline-block;
   max-width: 13%;
   margin: 0;
-  border: solid 3px #111827;
   border-radius: 13px;
   cursor: pointer;
+  background-color: #eae0da;
+  box-shadow: 0 1.8px 4px #bbb3ae;
+}
+
+.choises img:hover {
+  background-color: #a0c3d2;
+  transform: scale(1.05);
+  box-shadow: 0 1.8px 6px #716c69;
 }
 
 .result {
@@ -60,8 +67,9 @@ body {
   flex-direction: column;
   gap: 2rem;
   align-items: center;
-  border: solid 3px #111827;
   border-radius: 13px;
+  box-shadow: 0 1.8px 4px #bbb3ae;
+  background-color: #eae0da;
 }
 
 h2 {
@@ -86,7 +94,7 @@ h2 {
 .score {
   align-self: center;
   padding: 6rem;
-  border: solid 4px #111827;
+
   border-radius: 13px;
 }
 
@@ -95,11 +103,11 @@ h2 {
 }
 
 .btn {
-  background-color: #d1fae5;
+  background-color: #a0c3d2;
   padding: 0.8rem 2rem;
   font-size: 2rem;
   font-weight: 500;
-  border: solid 2px #111827;
+  border: solid 2px #506269;
   border-radius: 5px;
   margin-bottom: 2rem;
 
@@ -109,4 +117,9 @@ h2 {
 .btn:hover {
   cursor: pointer;
   transform: scale(1.1);
+}
+
+.winner {
+  background-color: #b3cfdb;
+  box-shadow: 0 1.8px 6px #645f5d;
 }
