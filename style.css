@@ -1,0 +1,107 @@
+* {
+  margin: 0 auto;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Dosis", sans-serif;
+  font-weight: 400;
+  color: #111827;
+  height: 100vh;
+  background-image: linear-gradient(to right bottom, #047857, #059669);
+
+  position: relative;
+}
+
+.game {
+  display: flex;
+  flex-direction: column;
+}
+
+.choose {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  margin: 4.8rem 0;
+  justify-content: center;
+  align-items: center;
+}
+
+.choises {
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+}
+
+.choises img {
+  display: inline-block;
+  max-width: 13%;
+  margin: 0;
+  border: solid 3px #111827;
+  border-radius: 13px;
+}
+
+.result {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  height: 40vh;
+}
+
+.player {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  align-items: center;
+  border: solid 3px #111827;
+  border-radius: 13px;
+}
+
+h2 {
+  margin: 2rem 0;
+  font-size: 4rem;
+}
+
+.player img {
+  display: inline-block;
+  max-width: 50%;
+  margin: 0;
+}
+
+.table {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  justify-content: space-between;
+  font-size: 3.6rem;
+}
+
+.score {
+  align-self: center;
+  padding: 6rem;
+  border: solid 4px #111827;
+  border-radius: 13px;
+}
+
+.btn {
+  background-color: #d1fae5;
+  padding: 0.8rem 2rem;
+  font-size: 2rem;
+  font-weight: 500;
+  border: solid 2px #111827;
+  border-radius: 5px;
+  margin-bottom: 2rem;
+
+  transition: all 0.3s;
+}
+
+.btn:hover {
+  cursor: pointer;
+  transform: scale(1.1);
+}
