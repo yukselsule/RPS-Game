@@ -45,6 +45,7 @@ body {
   margin: 0;
   border: solid 3px #111827;
   border-radius: 13px;
+  cursor: pointer;
 }
 
 .result {
@@ -70,7 +71,7 @@ h2 {
 
 .player img {
   display: inline-block;
-  max-width: 50%;
+  max-width: 60%;
   margin: 0;
 }
 
@@ -87,6 +88,10 @@ h2 {
   padding: 6rem;
   border: solid 4px #111827;
   border-radius: 13px;
+}
+
+.message {
+  text-align: center;
 }
 
 .btn {
