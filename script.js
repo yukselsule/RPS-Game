@@ -48,6 +48,9 @@ const init = function () {
 
   choiceOg.src = `img/option.png`;
   choicePc.src = `img/option.png`;
+
+  playerOg.classList.remove("winner");
+  playerPc.classList.remove("winner");
 };
 
 init();
@@ -65,6 +68,8 @@ choises.forEach((choice, index) => {
 
     if (playerChoiceNumber === pcChoiceNumber) {
       message.textContent = "Draw!";
+      playerOg.classList.remove("winner");
+      playerPc.classList.remove("winner");
     } else if (playerChoiceNumber === 0 && pcChoiceNumber === 1) {
       message.textContent = "You lose!";
       loseCondition();
