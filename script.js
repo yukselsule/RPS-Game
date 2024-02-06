@@ -1,7 +1,7 @@
 "use strict";
 
 // Selecting elements
-const choice = document.querySelectorAll(".choice");
+const choises = document.querySelectorAll(".choice");
 const choice0 = document.querySelector(".choice-0");
 const choice1 = document.querySelector(".choice-1");
 const choice2 = document.querySelector(".choice-2");
@@ -21,6 +21,8 @@ const btnNewRound = document.querySelector(".btn__newround");
 const pcChoice = function () {
   const move = Math.trunc(Math.random() * 3) + 1;
   choicePc.src = `img/option${move}.png`;
+
+  return move - 1;
 };
 
 // Starting conditions
@@ -36,9 +38,34 @@ choicePc.src = `img/option.png`;
 
 // Choosing a move
 
-for (let i = 0; i < choice.length; i++) {
-  choice[i].addEventListener("click", function () {
+for (let i = 0; i < choises.length; i++) {
+  choises[i].addEventListener("click", function () {
     choiceOg.src = `img/option${i + 1}.png`;
     pcChoice();
   });
 }
+
+choises.forEach((choice) => {
+  choice.addEventListener("click", function () {
+    const playerChoiceNumber = Number(choice.dataset.choiceNumber);
+
+    const pcChoiceNumber = pcChoice();
+
+    console.log(`${playerChoiceNumber}`);
+    console.log(`${pcChoiceNumber}`);
+
+    //conditions
+
+    if (playerChoiceNumber === pcChoiceNumber) {
+      message.textContent = "Draw!";
+    } else if (playerChoiceNumber === 0 && pcChoiceNumber === 1) {
+      message.textContent = "You lose!";
+    } else if (playerChoiceNumber === 1 && pcChoiceNumber === 2) {
+      message.textContent = "You lose!";
+    } else if (playerChoiceNumber === 2 && pcChoiceNumber === 0) {
+      message.textContent = "You lose!";
+    } else {
+      message.textContent = "You win!";
+    }
+  });
+});
