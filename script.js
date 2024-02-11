@@ -60,23 +60,47 @@ choises.forEach((choice, index) => {
     choiceOg.src = `img/option${index + 1}.png`;
     pcChoice();
 
-    const playerChoiceNumber = Number(choice.dataset.choiceNumber);
+    let playerOgChoiceNumber = Number(choice.dataset.choiceNumber);
+    let playerOgChoice;
 
-    const pcChoiceNumber = pcChoice();
+    if (playerOgChoiceNumber === 0) {
+      playerOgChoice = "rock";
+    } else if (playerOgChoiceNumber === 1) {
+      playerOgChoice = "paper";
+    } else if (playerOgChoiceNumber === 2) {
+      playerOgChoice = "scissors";
+    }
+
+    console.log(playerOgChoiceNumber);
+    console.log(playerOgChoice);
+
+    let pcChoiceNumber = pcChoice();
+    let playerPcChoice;
+
+    if (pcChoiceNumber === 0) {
+      playerPcChoice = "rock";
+    } else if (pcChoiceNumber === 1) {
+      playerPcChoice = "paper";
+    } else if (pcChoiceNumber === 2) {
+      playerPcChoice = "scissors";
+    }
+
+    console.log(pcChoiceNumber);
+    console.log(playerPcChoice);
 
     //conditions
 
-    if (playerChoiceNumber === pcChoiceNumber) {
+    if (playerOgChoice === playerPcChoice) {
       message.textContent = "Draw!";
       playerOg.classList.remove("winner");
       playerPc.classList.remove("winner");
-    } else if (playerChoiceNumber === 0 && pcChoiceNumber === 1) {
+    } else if (playerOgChoice === "rock" && playerPcChoice === "paper") {
       message.textContent = "You lose!";
       loseCondition();
-    } else if (playerChoiceNumber === 1 && pcChoiceNumber === 2) {
+    } else if (playerOgChoice === "paper" && playerPcChoice === "scissors") {
       message.textContent = "You lose!";
       loseCondition();
-    } else if (playerChoiceNumber === 2 && pcChoiceNumber === 0) {
+    } else if (playerOgChoice === "scissors" && playerPcChoice === "rock") {
       message.textContent = "You lose!";
       loseCondition();
     } else {
