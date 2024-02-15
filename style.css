@@ -14,7 +14,7 @@ body {
   font-weight: 400;
   color: #111827;
   height: 100vh;
-  background-image: linear-gradient(to right bottom, #eac7c7, #a0c3d2);
+  background-image: linear-gradient(to right bottom, #a0c3d2, #eac7c7);
   position: relative;
 }
 
